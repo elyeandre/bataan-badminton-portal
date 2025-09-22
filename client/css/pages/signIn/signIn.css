@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #142850;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* New compact header + main layout wrappers */
+.auth-header { display: flex; align-items: center; gap: 12px; padding: 18px 24px 6px 18px; }
+.auth-main { display: flex; padding: 32px 0 40px 0; }
+.auth-main .login-form-container { margin-top: 0; }
+
+/* Layout */
+.auth-layout { display: flex; flex-direction: column; min-height: 100vh; }
+.header-bar { padding: 12px 0 0; }
+/* Make header stretch full width and push logo to extreme left */
+.header-inner { max-width: none; margin: 0; display: flex; align-items: center; padding-left: 20px; }
+.logo-container img { width: 80px; height: auto; margin-right: 10px; }
+.title-container h2 { font-size: 13px; font-family: 'Poppins', sans-serif; color: #fff; width: 200px; margin: 0; }
+
+.main-auth { flex: 1; display: flex; align-items: flex-start; justify-content: flex-start; padding: 10px 0 40px 40px; }
+.main-auth-inner { max-width: 1200px; width: 100%; display: flex; }
+
+ .login-form-container {
+  position: relative;
+  transform: none;
+  left: auto;
+  top: auto;
+  padding: 0;
+  /* Left offset */
+  margin: 0 0 0 20px; /* top gap now handled by auth-main padding */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.login-form {
+  width: 370px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  border-radius: 5px;
+  padding: 20px 22px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form .text {
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  margin: 5px 0 10px;
+}
+
+.login-form .data label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #2e2e2e;
+}
+
+.login-form .data input,
+.login-form .data select {
+  height: 45px;
+  width: 100%;
+  padding-left: 10px;
+  outline: none;
+  font-size: 14px;
+  font-weight: 400;
+  background-color: #f1f4fb;
+  color: #000;
+  border-radius: 5px;
+  border: 1px solid #f1f4fb;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.login-form .data input:focus,
+.login-form .data select:focus {
+  border: 0.8px solid black;
+}
+
+form .forgot-pass {
+  text-align: center;
+}
+
+form .forgot-pass a {
+  font-size: 11px;
+  color: #397cf7;
+  text-decoration: none;
+}
+
+form .forgot-pass a:hover {
+  text-decoration: underline;
+}
+
+.login-form button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  max-width: 150px;
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #f1f1f1;
+  border-radius: 5px;
+  margin: 25px auto 10px;
+  background-color: #142850;
+  transition: all 0.1s linear;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.login-form button:hover {
+  background-color: #397cf7 !important;
+}
+
+.login-form .submit {
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.toggle-password { position: absolute; top: 40%; right: 18px; transform: translateY(-50%); cursor: pointer; }
+
+.login-form-container h4 {
+  color: #fff;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.login-form-container h4 a {
+  color: #397cf7;
+  text-decoration: none;
+}
+
+.login-form-container h4 a:hover {
+  text-decoration: underline;
+}
+
+/* Modal */
+.modal { background-color: rgba(0,0,0,0.4); display: none; justify-content: center; align-items: center; height: 100%; left: 0; overflow: hidden; position: fixed; top: 0; width: 100%; z-index: 1; }
+.modal-content { background-color: #fff; border: 1px solid #888; border-radius: 5px; box-shadow: 0 0 8px rgba(0,0,0,0.2); margin: 15% auto; max-width: 370px; padding: 20px; text-align: center; width: 90%; position: relative; }
+.close-button { color: #aaa; position: absolute; top: 2px; right: 15px; font-size: 28px; font-weight: bold; cursor: pointer; }
+.close-button:hover, .close-button:focus { color: #000; }
+
+.error-message { display: none; color: #d9534f; background-color: #f2dede; border: 1px solid #ebccd1; padding: 10px; font-size: 14px; font-weight: bold; border-radius: 4px; margin-top: 10px; }
+.error-message.show { display: block; animation: fadein 0.5s; }
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+
+.modal .submit { align-items: center; background-color: #142850; border: none; border-radius: 5px; color: #f1f1f1; cursor: pointer; display: flex; font-size: 17px; font-weight: 400; height: 45px; justify-content: center; margin: 25px auto; max-width: 150px; outline: none; text-transform: uppercase; transition: all 0.1s linear; width: 100%; }
+.submit:hover { background-color: #397cf7 !important; }
+
+/* Forgot Password Modal Styling */
+.modal-title { font-size: 32px; font-weight: 600; margin: 0 0 18px; font-family: 'Poppins', sans-serif; line-height: 1.15; color: #111; }
+.modal-content .data { text-align: left; margin-top: 6px; }
+.modal-content .data label { display: block; font-size: 12px; font-weight: 500; color: #2e2e2e; margin-bottom: 6px; line-height: 1.4; }
+.modal-content .data input { height: 45px; width: 100%; padding-left: 10px; outline: none; font-size: 14px; font-weight: 400; background-color: #f1f4fb; color: #000; border-radius: 5px; border: 1px solid #f1f4fb; margin: 4px 0 4px; box-sizing: border-box; transition: border-color .15s ease, background-color .15s ease; }
+.modal-content .data input:focus { border: 0.8px solid #142850; background-color: #eef3fd; }
+.modal-content #verification-email-error { font-size: 12px; margin-top: 6px; padding: 6px 8px; }
+
+/* Demo account note repositioned */
+.login-form-container::before { content: "Admin (testing account)\A username: superadmin\A password: superadmin"; display: block; position: absolute; top: 8px; left: 420px; white-space: pre; background-color: rgba(0,0,0,0.35); color: #fff; padding: 10px 16px; border-radius: 5px; font-size: 12px; text-align: left; line-height: 1.5; font-weight: 500; width: 230px; box-shadow: 0 2px 5px rgba(0,0,0,0.25); }
+
+/* Account switch (beneath sign-in form) */
+.account-switch { margin: 18px 0 0 0; font-size: 13px; font-weight: 600; color: #fff; }
+.account-switch a { color: #5b94ff; text-decoration: none; font-weight: 600; }
+.account-switch a:hover { text-decoration: underline; }

@@ -1,0 +1,197 @@
+<body>
+  <section class="home-section">
+    <h1>Settings</h1>
+    <div class="box">
+      <!-- Court Owner Information Update Section -->
+      <div class="court-owner-info">
+        <h4>Update Court Information</h4>
+        <form id="courtOwnerForm" enctype="multipart/form-data">
+          <div class="settings-info-grid">
+            <div class="settings-field">
+              <label for="businessName">Business Name</label>
+              <input type="text" id="businessName" name="business_name" placeholder="Enter business name" />
+            </div>
+            
+            <div class="settings-field">
+              <label for="contactNumber">Contact Number</label>
+              <input type="tel" id="contactNumber" name="contact_number" placeholder="Enter contact number" />
+            </div>
+            
+            <div class="settings-field">
+              <label for="businessEmail">Business Email</label>
+              <input type="email" id="businessEmail" name="business_email" placeholder="Enter business email" />
+            </div>
+            
+            <div class="settings-field">
+              <label for="paypalEmail">PayPal Email</label>
+              <input type="email" id="paypalEmail" name="paypal_email" placeholder="Enter PayPal email" />
+            </div>
+            
+            <div class="settings-field">
+              <label for="operatingHoursFrom">Operating Hours From</label>
+              <input type="time" id="operatingHoursFrom" name="operating_hours_from" />
+            </div>
+            
+            <div class="settings-field">
+              <label for="operatingHoursTo">Operating Hours To</label>
+              <input type="time" id="operatingHoursTo" name="operating_hours_to" />
+            </div>
+            
+            <div class="settings-field">
+              <label for="hourlyRate">Hourly Rate (₱)</label>
+              <input type="number" id="hourlyRate" name="hourly_rate" placeholder="Enter hourly rate" step="0.01" min="0" />
+            </div>
+            
+            <div class="settings-field">
+              <label for="dtiNumber">DTI Registration Number</label>
+              <input type="text" id="dtiNumber" name="dti_number" placeholder="Enter DTI registration number" />
+            </div>
+            
+            <div class="settings-field full-width">
+              <label for="description">Court Description</label>
+              <textarea id="description" name="description" rows="4" placeholder="Tell us about your court"></textarea>
+            </div>
+          </div>
+          
+          <!-- Business Logo Upload -->
+          <div class="logo-upload-section">
+            <h5>Business Logo</h5>
+            <div class="image-upload-container">
+              <img id="logoPreview" src="/assets/images/logo_placeholder_120x120.png" alt="Business Logo" />
+              <input type="file" id="businessLogo" name="business_logo" accept="image/*" />
+              <label for="businessLogo" class="upload-label">Click to upload logo</label>
+            </div>
+          </div>
+          
+          <!-- Court Images Upload -->
+          <div class="court-images-section">
+            <h5>Court Images</h5>
+            <div class="courts-grid" id="courtsGrid">
+              <div class="court-wrapper" id="courtWrapper1">
+                <div class="court" id="court1">
+                  <button type="button" class="remove-court-btn">×</button>
+                  <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="Upload Court" id="courtImage1" class="image-holder default" />
+                  <input type="file" id="courtUpload1" name="court_image[]" class="court-file-input" accept="image/*" />
+                </div>
+              </div>
+            </div>
+            <button type="button" class="add-court-btn">+ Add More Court Images</button>
+          </div>
+          
+          <!-- Facilities Section -->
+          <div class="facilities-section">
+            <h5>Facilities</h5>
+            <div class="facilities-grid" id="facilitiesGrid">
+              <div class="facility-wrapper" id="facilityWrapper1">
+                <div class="facility" id="facility1">
+                  <button type="button" class="remove-facility-btn">×</button>
+                  <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="Upload Facility" id="facilityImage1" class="image-holder default" />
+                  <input type="file" id="facilityUpload1" name="facility_image[]" class="facility-file-input" accept="image/*" />
+                </div>
+                <input type="text" name="facility_name[]" placeholder="Enter facility name" />
+              </div>
+            </div>
+            <button type="button" class="add-facility-btn">+ Add More Facilities</button>
+          </div>
+          
+          <!-- Documents Upload Section -->
+          <div class="documents-section">
+            <h5>Business Documents</h5>
+            <div class="file-upload-grid">
+              <div class="file-input">
+                <label for="businessPermit">Business Permit (from City Hall)</label>
+                <div class="custom-file-upload">
+                  <span class="upload-icon"></span>
+                  <input type="file" id="businessPermit" name="documents[business_permit]" accept=".pdf,.doc,.docx" />
+                  <span>No file chosen</span>
+                </div>
+              </div>
+              
+              <div class="file-input">
+                <label for="dti">Certificate of Business Name Registration (from DTI)</label>
+                <div class="custom-file-upload">
+                  <span class="upload-icon"></span>
+                  <input type="file" id="dti" name="documents[dti]" accept=".pdf,.doc,.docx" />
+                  <span>No file chosen</span>
+                </div>
+              </div>
+              
+              <div class="file-input">
+                <label for="bir">Certificate of Registration (from BIR)</label>
+                <div class="custom-file-upload">
+                  <span class="upload-icon"></span>
+                  <input type="file" id="bir" name="documents[bir]" accept=".pdf,.doc,.docx" />
+                  <span>No file chosen</span>
+                </div>
+              </div>
+              
+              <div class="file-input">
+                <label for="sanitaryPermit">Sanitary Permit (from City Health Office)</label>
+                <div class="custom-file-upload">
+                  <span class="upload-icon"></span>
+                  <input type="file" id="sanitaryPermit" name="documents[sanitary_permit]" accept=".pdf,.doc,.docx" />
+                  <span>No file chosen</span>
+                </div>
+              </div>
+              
+              <div class="file-input">
+                <label for="barangayClearance">Barangay Clearance</label>
+                <div class="custom-file-upload">
+                  <span class="upload-icon"></span>
+                  <input type="file" id="barangayClearance" name="documents[barangay_clearance]" accept=".pdf,.doc,.docx" />
+                  <span>No file chosen</span>
+                </div>
+              </div>
+              
+              <div class="file-input">
+                <label for="nonCoverage">Certificate of Non-Coverage (from DENR)</label>
+                <div class="custom-file-upload">
+                  <span class="upload-icon"></span>
+                  <input type="file" id="nonCoverage" name="documents[non_coverage]" accept=".pdf,.doc,.docx" />
+                  <span>No file chosen</span>
+                </div>
+              </div>
+              
+              <div class="file-input">
+                <label for="doleRegistration">Certificate of Registration (from DOLE)</label>
+                <div class="custom-file-upload">
+                  <span class="upload-icon"></span>
+                  <input type="file" id="doleRegistration" name="documents[dole_registration]" accept=".pdf,.doc,.docx" />
+                  <span>No file chosen</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <button type="submit" class="submit-button">Update Court Information</button>
+        </form>
+      </div>
+
+      <!-- <div class="changePassword">
+        <h4>Change Password</h4>
+        <div class="settings-field">
+          <label for="currentPassword">Current Password</label>
+          <input type="password" id="currentPassword" placeholder="Enter Current Password" required />
+        </div>
+
+        <div class="settings-field">
+          <label for="newPassword">New Password</label>
+          <input type="password" id="newPassword" placeholder="Enter New Password" required />
+        </div>
+
+        <div class="settings-field">
+          <label for="confirmPassword">Confirm New Password</label>
+          <input type="password" id="confirmPassword" placeholder="Confirm New Password" required />
+        </div>
+
+        <button class="submit-button">Change Password</button>
+      </div> -->
+
+      <div class="delete-account">
+        <h4>Delete Account</h4>
+        <p>Warning: Deleting your account is irreversible.</p>
+        <button id="deleteButton" class="delete-button">Delete Account</button>
+      </div>
+    </div>
+  </section>
+</body>

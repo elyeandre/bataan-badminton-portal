@@ -1,0 +1,376 @@
+<body>
+  <header class="navbar">
+    <div class="nav-items">
+      <a href="#" class="nav-link active" data-tab="approval-page">Pending Approval</a>
+      <a href="#" class="nav-link" data-tab="court-list">Court Owner List</a>
+      <a href="#" class="nav-link" data-tab="user-list">User List</a>
+    </div>
+    <button id="logoutBtn" class="logout-btn">Logout</button>
+  </header>
+
+  <div class="content-container">
+    <section id="approval-page" class="tab-content active">
+      <div class="court-list-controls">
+        <div class="search-container">
+          <input type="text" id="pendingSearchInput" placeholder="Search pending courts (business name, owner name, email)..." class="search-input">
+          <button id="clearPendingSearchBtn" class="clear-search-btn">Clear</button>
+        </div>
+        <div class="filter-container">
+          <select id="pendingMunicipalityFilter" class="filter-dropdown">
+            <option value="">All Municipalities</option>
+            <option value="Abucay">Abucay</option>
+            <option value="Bagac">Bagac</option>
+            <option value="Balanga">Balanga</option>
+            <option value="Dinalupihan">Dinalupihan</option>
+            <option value="Hermosa">Hermosa</option>
+            <option value="Limay">Limay</option>
+            <option value="Mariveles">Mariveles</option>
+            <option value="Morong">Morong</option>
+            <option value="Orani">Orani</option>
+            <option value="Orion">Orion</option>
+            <option value="Pilar">Pilar</option>
+            <option value="Samal">Samal</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="pagination-info">
+        <span id="pendingCountInfo">Loading pending courts...</span>
+      </div>
+      
+      <table id="courtOwnersTable">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Owner Name</th>
+            <th>Business Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Number</th>
+            <th>DTI Number</th>
+            <th>Registration Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="approvalTableBody">
+          <!-- Dynamic rows will be injected here -->
+        </tbody>
+      </table>
+      
+      <div class="pagination-container">
+        <div class="pagination-controls">
+          <button id="pendingPrevPageBtn" class="pagination-btn" disabled>Previous</button>
+          <span id="pendingPageInfo" class="page-info">Page 1 of 1</span>
+          <button id="pendingNextPageBtn" class="pagination-btn" disabled>Next</button>
+        </div>
+        <div class="page-size-container">
+          <label for="pendingPageSizeSelect">Show:</label>
+          <select id="pendingPageSizeSelect" class="page-size-select">
+            <option value="10">10</option>
+            <option value="25" selected>25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+          <span>per page</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="court-list" class="tab-content">
+      <h4>Approved Court Owners</h4>
+      <div class="court-list-controls">
+        <div class="search-container">
+          <input type="text" id="approvedSearchInput" placeholder="Search approved courts (business name, owner name, email)..." class="search-input">
+          <button id="clearApprovedSearchBtn" class="clear-search-btn">Clear</button>
+        </div>
+        <div class="filter-container">
+          <select id="approvedMunicipalityFilter" class="filter-dropdown">
+            <option value="">All Municipalities</option>
+            <option value="Abucay">Abucay</option>
+            <option value="Bagac">Bagac</option>
+            <option value="Balanga">Balanga</option>
+            <option value="Dinalupihan">Dinalupihan</option>
+            <option value="Hermosa">Hermosa</option>
+            <option value="Limay">Limay</option>
+            <option value="Mariveles">Mariveles</option>
+            <option value="Morong">Morong</option>
+            <option value="Orani">Orani</option>
+            <option value="Orion">Orion</option>
+            <option value="Pilar">Pilar</option>
+            <option value="Samal">Samal</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="pagination-info">
+        <span id="approvedCountInfo">Loading approved courts...</span>
+      </div>
+      
+      <table id="approvedTable">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Owner Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Contact Number</th>
+            <th>DTI Number</th>
+            <th>Registration Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="approvedTableBody">
+          <!-- content will be injected here dynamically -->
+        </tbody>
+      </table>
+      
+      <div class="pagination-container">
+        <div class="pagination-controls">
+          <button id="approvedPrevPageBtn" class="pagination-btn" disabled>Previous</button>
+          <span id="approvedPageInfo" class="page-info">Page 1 of 1</span>
+          <button id="approvedNextPageBtn" class="pagination-btn" disabled>Next</button>
+        </div>
+        <div class="page-size-container">
+          <label for="approvedPageSizeSelect">Show:</label>
+          <select id="approvedPageSizeSelect" class="page-size-select">
+            <option value="10">10</option>
+            <option value="25" selected>25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+          <span>per page</span>
+        </div>
+      </div>
+
+      <h4>Denied Court Owners</h4>
+      <div class="court-list-controls">
+        <div class="search-container">
+          <input type="text" id="deniedSearchInput" placeholder="Search denied courts (business name, owner name, email)..." class="search-input">
+          <button id="clearDeniedSearchBtn" class="clear-search-btn">Clear</button>
+        </div>
+        <div class="filter-container">
+          <select id="deniedMunicipalityFilter" class="filter-dropdown">
+            <option value="">All Municipalities</option>
+            <option value="Abucay">Abucay</option>
+            <option value="Bagac">Bagac</option>
+            <option value="Balanga">Balanga</option>
+            <option value="Dinalupihan">Dinalupihan</option>
+            <option value="Hermosa">Hermosa</option>
+            <option value="Limay">Limay</option>
+            <option value="Mariveles">Mariveles</option>
+            <option value="Morong">Morong</option>
+            <option value="Orani">Orani</option>
+            <option value="Orion">Orion</option>
+            <option value="Pilar">Pilar</option>
+            <option value="Samal">Samal</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="pagination-info">
+        <span id="deniedCountInfo">Loading denied courts...</span>
+      </div>
+      
+      <table id="deniedTable">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Owner Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Contact Number</th>
+            <th>DTI Number</th>
+            <th>Registration Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="deniedTableBody">
+          <!-- content will be injected here dynamically -->
+        </tbody>
+      </table>
+      
+      <div class="pagination-container">
+        <div class="pagination-controls">
+          <button id="deniedPrevPageBtn" class="pagination-btn" disabled>Previous</button>
+          <span id="deniedPageInfo" class="page-info">Page 1 of 1</span>
+          <button id="deniedNextPageBtn" class="pagination-btn" disabled>Next</button>
+        </div>
+        <div class="page-size-container">
+          <label for="deniedPageSizeSelect">Show:</label>
+          <select id="deniedPageSizeSelect" class="page-size-select">
+            <option value="10">10</option>
+            <option value="25" selected>25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+          <span>per page</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="user-list" class="tab-content">
+      <div class="user-list-controls">
+        <div class="search-container">
+          <input type="text" id="userSearchInput" placeholder="Search users (name, email, username, municipality)..." class="search-input">
+          <button id="clearSearchBtn" class="clear-search-btn">Clear</button>
+        </div>
+        <div class="filter-container">
+          <select id="userTypeFilter" class="filter-dropdown">
+            <option value="">All User Types</option>
+            <option value="admin">Court Owner</option>
+            <option value="player">Player</option>
+            <option value="coach">Coach</option>
+          </select>
+          <select id="userGenderFilter" class="filter-dropdown">
+            <option value="">All Genders</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="pagination-info">
+        <span id="userCountInfo">Loading users...</span>
+      </div>
+      
+      <table id="userListTable">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Municipality</th>
+            <th>Contact Number</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>User Type</th>
+            <th>Registration Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="userListTableBody">
+          <!-- content will be injected here dynamically -->
+        </tbody>
+      </table>
+      
+      <div class="pagination-container">
+        <div class="pagination-controls">
+          <button id="prevPageBtn" class="pagination-btn" disabled>Previous</button>
+          <span id="pageInfo" class="page-info">Page 1 of 1</span>
+          <button id="nextPageBtn" class="pagination-btn" disabled>Next</button>
+        </div>
+        <div class="page-size-container">
+          <label for="pageSizeSelect">Show:</label>
+          <select id="pageSizeSelect" class="page-size-select">
+            <option value="10">10</option>
+            <option value="25" selected>25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+          <span>per page</span>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- view Details Modal -->
+  <div id="viewDetailsModal" class="modal">
+    <div class="modal-content">
+      <!-- content will be injected here dynamically -->
+    </div>
+  </div>
+
+  <!-- Edit User Modal -->
+  <div id="editUserModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Edit User Information</h2>
+      <form id="editUserForm">
+        <input type="hidden" id="editUserId">
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="editFirstName">First Name</label>
+            <input type="text" id="editFirstName" required>
+          </div>
+          <div class="form-group">
+            <label for="editMiddleName">Middle Name</label>
+            <input type="text" id="editMiddleName">
+          </div>
+          <div class="form-group">
+            <label for="editLastName">Last Name</label>
+            <input type="text" id="editLastName" required>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="editEmail">Email</label>
+            <input type="email" id="editEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="editUsername">Username</label>
+            <input type="text" id="editUsername" required>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="editContactNumber">Contact Number</label>
+            <input type="text" id="editContactNumber" required>
+          </div>
+          <div class="form-group">
+            <label for="editMunicipality">Municipality</label>
+            <input type="text" id="editMunicipality" required>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="editGender">Gender</label>
+            <select id="editGender" required>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="editRole">User Type</label>
+            <select id="editRole" required>
+              <option value="admin">Court Owner</option>
+              <option value="player">Player</option>
+              <option value="coach">Coach</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="editDateOfBirth">Date of Birth</label>
+          <input type="date" id="editDateOfBirth" required>
+        </div>
+        
+        <div class="form-actions">
+          <button type="button" class="btn-cancel" onclick="closeEditUserModal()">Cancel</button>
+          <button type="submit" class="btn-save">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div id="deleteConfirmModal" class="modal">
+    <div class="modal-content delete-modal">
+      <span class="close">&times;</span>
+      <h2>Confirm Delete</h2>
+      <p id="deleteConfirmMessage">Are you sure you want to delete this user?</p>
+      <div class="warning-message">
+        <strong>Warning:</strong> This action will permanently delete:
+        <ul id="deleteWarningList">
+          <!-- Dynamic warning list will be populated here -->
+        </ul>
+        <p><strong>This action cannot be undone!</strong></p>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="btn-cancel" onclick="closeDeleteConfirmModal()">Cancel</button>
+        <button type="button" id="confirmDeleteBtn" class="btn-delete">Delete</button>
+      </div>
+    </div>
+  </div>
+</body>
